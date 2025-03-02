@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #ffffff, #fde8c8);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: black;
+        }
+
+        .links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .links a {
+            font-size: 1.2rem;
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: rgb(109, 67, 0);
+        }
+
+        .hamburg {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: black;
+        }
+
+        .dropdown {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1100;
+        }
+
+        .dropdown.active {
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+        }
+
+        .dropdown a:hover {
+            color: rgb(255, 193, 7);
+        }
+
+        .close-menu {
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: rgb(109, 67, 0);
+            margin-bottom: 20px;
+            z-index: 1000;
+        }
+
+        .contact-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            z-index: 1000;
+        }
+
+        .circle {
+            width: 60px;
+            height: 60px;
+            background: rgb(109, 67, 0);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 0.8s forwards;
+        }
+
+        .circle:nth-child(1) { animation-delay: 0.5s; }
+        .circle:nth-child(3) { animation-delay: 1.5s; }
+        .circle:nth-child(5) { animation-delay: 2.5s; }
+        .circle:nth-child(7) { animation-delay: 3.5s; }
+
+        .circle a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .line {
+            width: 4px;
+            height: 50px;
+            background: rgb(109, 67, 0);
+            opacity: 0;
+            transform: scaleY(0);
+            animation: growLine 0.8s forwards;
+        }
+
+        .line:nth-of-type(2) { animation-delay: 1s; }
+        .line:nth-of-type(4) { animation-delay: 2s; }
+        .line:nth-of-type(6) { animation-delay: 3s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes growLine {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .hamburg {
+                display: block;
+            }
+
+            .links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo"> <span></span></div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="About me.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <i class="fas fa-bars hamburg" onclick="toggleMenu()"></i>
+    </nav>
+
+    <!-- Dropdown -->
+    <div class="dropdown">
+        <i class="fas fa-times close-menu" onclick="toggleMenu()"></i>
+        <a href="index.html">Home</a>
+        <a href="About me.html">About Me</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Contact Section -->
+    <h1><br>Contact Me</h1>
+    <div class="contact-container">
+        <div class="circle"><a href="https://www.facebook.com/share/18fHZTtute/ target="_blank"><i class="fab fa-facebook-f"></i></a></div>
+        <div class="line"></div>
+        <div class="circle"><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></div>
+        <div class="line"></div>
+        <div class="circle"><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></div>
+        <div class="line"></div>
+        <div class="circle"><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.querySelector(".dropdown");
+            const contactContainer = document.querySelector(".contact-container");
+            dropdown.classList.toggle("active");
+
+            if (dropdown.classList.contains("active")) {
+                contactContainer.style.display = "none";
+            } else {
+                contactContainer.style.display = "flex";
+            }
+        }
+    </script>
+
+</body>
+</html>
