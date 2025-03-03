@@ -204,13 +204,13 @@ section{
 
 @keyframes words {
     0%, 33%{
-        content: "Student";
+        content: " Dead";
     }
     34%, 66%{
-        content: "Friend";
+        content: " Dying";
     }
     67%, 100%{
-        content: "Brother";
+        content: " Gone";
     }
 }
 
